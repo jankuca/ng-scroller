@@ -18,6 +18,7 @@ Read [this blog post](http://blog.jankuca.com/post/18726341670/google-closure-de
 ## Dependencies
 
 - [node.js](http://nodejs.org)
+- [Google Closure Linter](http://developers.google.com/closure/utilities) – optional, used only by the `lint.sh` script to check syntax
 
 ## Installation
 
