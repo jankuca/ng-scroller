@@ -34,7 +34,7 @@ TARGET_FILE=app.min.js
 SOURCE_MAP_FILE=source-map.json
 
 # The file (created by the script) including JS references from HTML files
-HTML_JS_FILE=$PUBLIC_DIR/app/controllers.temp.js
+HTML_JS_FILE=$PUBLIC_DIR/app/js/html-references.temp.js
 
 # The closure-library directory path
 CLOSURE_LIBRARY_DIR=$PUBLIC_DIR/lib/closure-library
@@ -55,6 +55,7 @@ $BUILD_DIR/compile-html.js                                                    \
   --root=$PUBLIC_DIR                                                          \
   --exclude=$PUBLIC_DIR/lib                                                   \
   --attribute="ng:controller"                                                 \
+  --namespace="app.htmlReferences"                                            \
 > $HTML_JS_FILE                                                               \
 || exit 1
 echo
@@ -68,7 +69,7 @@ $CLOSURE_LIBRARY_DIR/closure/bin/build/closurebuilder.py                      \
   --root="$PUBLIC_DIR/lib"                                                    \
   --root="$PUBLIC_DIR/app"                                                    \
   --namespace="app.main"                                                      \
-  --namespace="app.controllers"                                               \
+  --namespace="app.htmlReferences"                                            \
   --output_mode="compiled"                                                    \
   --compiler_jar="$CLOSURE_COMPILER_PATH"                                     \
   --compiler_flags="--compilation_level=ADVANCED_OPTIMIZATIONS"               \

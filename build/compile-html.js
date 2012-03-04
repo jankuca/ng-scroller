@@ -8,6 +8,7 @@ var path = require('path');
 var attributes = [];
 var roots = [];
 var exclude_roots = [];
+var namespace = 'app.htmlReferences';
 
 process.argv.slice(2).forEach(function (arg) {
   if (arg.substr(0, 2) === '--') {
@@ -25,6 +26,9 @@ process.argv.slice(2).forEach(function (arg) {
     case 'exclude':
       exclude_roots.push(value);
       break;
+    case 'namespace':
+      namespace = value;
+      break;
     }
   }
 });
@@ -37,7 +41,7 @@ lines.push(
   '',
   '/* This is an auto-generated file conatining all JavaScript references found in HTML files. */',
   '',
-  'goog.provide(\'app.controllers\');',
+  'goog.provide(\'' + namespace + '\');',
   ''
 );
 
@@ -95,6 +99,8 @@ function iterateFiles() {
   });
 
   process.stdout.write(lines.join('\n') + '\n');
+  process.stderr.write(__filename + ': JavaScript references extracted ' +
+    'to the namespace "' + namespace + '".');
 }
 
 

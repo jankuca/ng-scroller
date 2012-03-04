@@ -1,0 +1,2 @@
+# Ignore the generated file including JavaScript references found in HTML files
+html-references.temp.js
