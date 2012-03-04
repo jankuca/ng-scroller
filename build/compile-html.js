@@ -33,6 +33,8 @@ process.argv.slice(2).forEach(function (arg) {
 var files = [];
 var lines = [];
 lines.push(
+  '\'use strict\';',
+  '',
   '/* This is an auto-generated file conatining all JavaScript references found in HTML files. */',
   '',
   'goog.provide(\'app.controllers\');',
