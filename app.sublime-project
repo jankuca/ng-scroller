@@ -1,0 +1,43 @@
+{
+  "folders": [
+    {
+      "path": "build",
+      "name": "Build Scripts"
+    },
+    {
+      "path": "public/build",
+      "name": "Build Results"
+    },
+    {
+      "path": "public/lib",
+      "name": "Libraries"
+    },
+    {
+      "path": ".",
+      "name": "App",
+      "folder_exclude_patterns": [
+        "build",
+        "public/build",
+        "public/lib"
+      ]
+    }
+  ],
+
+  "settings": {
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true,
+    "word_wrap": true,
+    "wrap_width": 80
+  },
+
+  "build_systems": [
+    {
+      "name": "Lint the app",
+      "cmd": [ "bash", "$project_path/build/lint.sh", "$project_path" ]
+    },
+    {
+      "name": "Compile the app",
+      "cmd": [ "bash", "$project_path/build/compile.sh", "$project_path" ]
+    }
+  ]
+}

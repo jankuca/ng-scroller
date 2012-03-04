@@ -1,0 +1,4 @@
+# Ingore accidentally created folder state files
+.DS_Store
+desktop.ini
+Thumbs.db
