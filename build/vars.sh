@@ -26,6 +26,9 @@ TARGET_FILE=app.min.js
 # Relative to $TARGET_DIR
 SOURCE_MAP_FILE=source-map.json
 
+# The dependency file path
+DEPS_FILE=$TARGET_DIR/deps.js
+
 # The file (created by the script) including JS references from HTML files
 HTML_JS_FILE=$PUBLIC_DIR/app/js/html-references.temp.js
 
