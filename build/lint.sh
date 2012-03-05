@@ -11,19 +11,11 @@
 PROJECT_DIR_RELATIVE=$1
 [ -z $1 ] && PROJECT_DIR_RELATIVE="."
 
-
-# The Google Closure Linter executable path
-CLOSURE_LINTER_PATH="/usr/local/bin/gjslint"
-
-# The root project directory
-# All the following paths are relative to this directory
-PROJECT_DIR=`cd $PROJECT_DIR_RELATIVE ; pwd`
-
-# The public-facing directory (sometimes called the document root)
-PUBLIC_DIR=$PROJECT_DIR/public
+source $PROJECT_DIR_RELATIVE/build/vars.sh
 
 
 
+# Run Google Closure Linter
 $CLOSURE_LINTER_PATH                                                          \
   $PUBLIC_DIR/app/js/*.js                                                     \
                                                                               \
