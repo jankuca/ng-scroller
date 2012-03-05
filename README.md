@@ -22,7 +22,10 @@ Read [this blog post](http://blog.jankuca.com/post/18726341670/google-closure-de
 
 ## Installation
 
-    git clone git://URL/of/this/repository project-name
+> Do not fork this repository to use it. Fork only if you want to contribute. Thanks.
+
+    git clone git://github.com/jankuca/closure-boilerplate project-name
+    cd project-name
     ./make.sh
 
 The `make.sh` bash script will *fetch dependencies* such as the *Google Closure Library* and the *Google Closure Compiler*.
