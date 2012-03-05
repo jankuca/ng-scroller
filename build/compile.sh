@@ -17,11 +17,13 @@ source $PROJECT_DIR_RELATIVE/build/vars.sh
 
 # Make sure the target directory exists
 echo "-- Make sure the target directory exists"
+echo $TARGET_DIR
 mkdir -p $TARGET_DIR
-echo
+echo ""
 
 # Extract JavaScript global references from HTML files into a temporary JS file
 echo "-- Extract JavaScript references from HTML files"
+echo $HTML_JS_FILE
 $BUILD_DIR/compile-html.js                                                    \
   --root=$PUBLIC_DIR                                                          \
   --exclude=$PUBLIC_DIR/lib                                                   \
@@ -29,13 +31,14 @@ $BUILD_DIR/compile-html.js                                                    \
   --namespace="app.htmlReferences"                                            \
 > $HTML_JS_FILE                                                               \
 || exit 1
-echo
+echo -e "\n"
 
 # Note: The output file has to be inside one of the roots below.
 
 
 # Compile the JavaScript and generate a source map
 echo "-- Compile the JavaScript and generate a source map"
+echo $TARGET_DIR/$TARGET_FILE
 $CLOSURE_LIBRARY_DIR/closure/bin/build/closurebuilder.py                      \
   --root="$PUBLIC_DIR/lib"                                                    \
   --root="$PUBLIC_DIR/app"                                                    \
