@@ -2,3 +2,6 @@
 .DS_Store
 desktop.ini
 Thumbs.db
+
+# Ignore Sublime Text workspace files
+*.sublime-workspace
