@@ -67,11 +67,12 @@ $BUILD_DIR/fix-source-map.js                                                  \
 || exit 1
 echo
 
+
 # Remove temporary files
-# Do not remove the files if you want the source-mapping to be complete.
-#echo "Remove temporary files"
-#rm $PUBLIC_DIR/app/js/controllers.temp.js
-#echo
+echo "Remove temporary files"
+echo -n "$HTML_JS_FILE: "
+rm $HTML_JS_FILE && echo "ok"
+echo ""
 
 
 echo "== Successfully compiled =="
