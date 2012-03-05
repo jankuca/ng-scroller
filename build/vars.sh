@@ -37,3 +37,6 @@ CLOSURE_LIBRARY_DIR=$PUBLIC_DIR/lib/closure-library
 
 # The Google Closure Compiler jar file path
 CLOSURE_COMPILER_PATH=$BUILD_DIR/closure-compiler/compiler.jar
+
+# The Google Closure Linter executable path
+CLOSURE_LINTER_PATH=/usr/local/bin/gjslint
