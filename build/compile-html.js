@@ -117,6 +117,7 @@ function iterateFiles() {
             var parts = match.split('=');
             var value = parts[1].substr(1, parts[1].length - 2);
 
+            lines.push('goog.require(\'' + value + '\');');
             lines.push('goog.exportSymbol(\'' + value + '\', ' + value + ');');
           });
         }
