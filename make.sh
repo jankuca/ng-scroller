@@ -26,6 +26,9 @@ CLOSURE_LIBRARY_PATH=$PUBLIC_DIR/lib/closure-library
 # The directory to which to extract the Google Closure Compiler
 CLOSURE_COMPILER_PATH=$PROJECT_DIR/build/closure-compiler
 
+# The directory to which to extract the Google Closure Templates
+CLOSURE_TEMPLATES_PATH=$PROJECT_DIR/build/closure-templates
+
 # The Google Closure Library URL
 CLOSURE_LIBRARY_ARCHIVE_NAME="closure-library-20111110-r1376.zip"
 CLOSURE_LIBRARY_URL="http://closure-library.googlecode.com/files/$CLOSURE_LIBRARY_ARCHIVE_NAME"
@@ -33,6 +36,10 @@ CLOSURE_LIBRARY_URL="http://closure-library.googlecode.com/files/$CLOSURE_LIBRAR
 # The Google Closure Compiler URL
 CLOSURE_COMPILER_ARCHIVE_NAME="compiler-latest.zip"
 CLOSURE_COMPILER_URL="http://closure-compiler.googlecode.com/files/$CLOSURE_COMPILER_ARCHIVE_NAME"
+
+# The Google Closure Templates URL
+CLOSURE_TEMPLATES_ARCHIVE_NAME="closure-templates-for-javascript-latest.zip"
+CLOSURE_TEMPLATES_URL="http://closure-templates.googlecode.com/files/$CLOSURE_TEMPLATES_ARCHIVE_NAME"
 
 
 
@@ -94,8 +101,16 @@ unzip $CLOSURE_LIBRARY_ARCHIVE_NAME -d $CLOSURE_LIBRARY_PATH
 rm $CLOSURE_LIBRARY_ARCHIVE_NAME
 
 
-# Download the Google Closure Library
+# Download the Google Closure Compiler
 curl $CLOSURE_COMPILER_URL > $CLOSURE_COMPILER_ARCHIVE_NAME
 mkdir -p $CLOSURE_COMPILER_PATH
 unzip $CLOSURE_COMPILER_ARCHIVE_NAME -d $CLOSURE_COMPILER_PATH
 rm $CLOSURE_COMPILER_ARCHIVE_NAME
+
+
+# Download the Google Closure Templates
+curl $CLOSURE_TEMPLATES_URL > $CLOSURE_TEMPLATES_ARCHIVE_NAME
+mkdir -p $CLOSURE_TEMPLATES_PATH
+unzip $CLOSURE_TEMPLATES_ARCHIVE_NAME -d $CLOSURE_TEMPLATES_PATH
+rm $CLOSURE_TEMPLATES_ARCHIVE_NAME
+
