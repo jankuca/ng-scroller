@@ -28,7 +28,7 @@ Read [this blog post](http://blog.jankuca.com/post/18726341670/google-closure-de
     cd project-name
     ./make.sh
 
-The `make.sh` bash script will *fetch dependencies* such as the *Google Closure Library* and the *Google Closure Compiler*.
+The `make.sh` bash script will *fetch dependencies* (*Google Closure Library*, *Google Closure Compiler* and *Google Closure Templates*).
 
 Then, you have two options:
 
@@ -56,6 +56,9 @@ You can also run the script manually:
 
     # Lint
     ./build/lint.sh
+
+    # Compile templates
+    ./build/soy.sh
 
     # Compile
     ./build/compile.sh

@@ -9,17 +9,29 @@
       "name": "Build Results"
     },
     {
+      "path": "public",
+      "name": "Client",
+      "folder_exclude_patterns": [
+        "build",
+        "lib"
+      ]
+    },
+    {
       "path": "public/lib",
-      "name": "Libraries"
+      "name": "Client/Libraries"
     },
     {
       "path": ".",
-      "name": "App",
+      "name": "Server",
       "folder_exclude_patterns": [
         "build",
-        "public/build",
-        "public/lib"
+        "public",
+        "node_modules"
       ]
+    },
+    {
+      "path": "node_modules",
+      "name": "Server/Libraries"
     }
   ],
 
@@ -38,6 +50,10 @@
     {
       "name": "Compile the app",
       "cmd": [ "bash", "$project_path/build/compile.sh", "$project_path" ]
+    },
+    {
+      "name": "Compile templates",
+      "cmd": [ "bash", "$project_path/build/soy.sh", "$project_path" ]
     }
   ]
 }
