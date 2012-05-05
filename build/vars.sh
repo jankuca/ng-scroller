@@ -1,7 +1,7 @@
 
 # Closure-Boilerplate Build Configuration
 # --
-# @autor Jan Kuča
+# @author Jan Kuča <jan@jankuca.com>
 
 
 

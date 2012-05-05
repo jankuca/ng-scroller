@@ -1,7 +1,7 @@
 
 # Closure-Boilerplate Dependency-Writer Script
 # --
-# @autor Jan Kuča
+# @author Jan Kuča <jan@jankuca.com>
 
 
 

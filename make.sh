@@ -1,7 +1,7 @@
 
 # Closure-boilerplate Installation Script
 # --
-# @autor Jan Kuča
+# @author Jan Kuča <jan@jankuca.com>
 
 # Welcome message
 echo ""

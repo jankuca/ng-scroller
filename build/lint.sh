@@ -1,7 +1,7 @@
 
 # Closure-boilerplate Lint Script
 # --
-# @autor Jan Kuča
+# @author Jan Kuča <jan@jankuca.com>
 
 
 
