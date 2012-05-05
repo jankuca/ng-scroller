@@ -27,6 +27,8 @@ echo $HTML_JS_FILE
 $BUILD_DIR/compile-html.js                                                    \
   --root=$PUBLIC_DIR                                                          \
   --exclude=$PUBLIC_DIR/lib                                                   \
+  --extension="html"                                                          \
+  --extension="soy"                                                           \
   --attribute="ng:controller"                                                 \
   --namespace="app.htmlReferences"                                            \
 > $HTML_JS_FILE                                                               \

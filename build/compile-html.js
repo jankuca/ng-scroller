@@ -8,6 +8,7 @@ var path = require('path');
 var attributes = [];
 var roots = [];
 var exclude_roots = [];
+var extensions = [];
 var namespace = 'app.htmlReferences';
 
 process.argv.slice(2).forEach(function (arg) {
@@ -26,12 +27,22 @@ process.argv.slice(2).forEach(function (arg) {
     case 'exclude':
       exclude_roots.push(value);
       break;
+    case 'extension':
+      extensions.push(value);
+      break;
     case 'namespace':
       namespace = value;
       break;
     }
   }
 });
+
+
+if (!extensions.length) {
+  process.stderr.write('No file extensions specified\n');
+  process.stderr.write('Use the --extension parameter.');
+  process.exit(1);
+}
 
 
 var files = [];
@@ -50,27 +61,42 @@ function iterateNextRoot() {
 
   if (root) {
     root = path.resolve(__dirname, '..', root);
-    process.stderr.write(__filename + ': Looking for HTML files in ' + root + '\n');
+    process.stderr.write(__filename + ': Looking for ' +
+      '*.' + extensions.join(', *.') + ' files in ' + root + '\n');
 
     var data = '';
-    var proc = exec('find ' + root + ' -name "*.html"');
-    proc.stdout.on('data', function (chunk) {
-      data += chunk;
-    });
-    proc.stderr.on('data', function (chunk) {
-      console.log(''+ chunk);
-    });
-    proc.on('exit', function (code) {
-      var results = data.trim().split("\n");
-      results = results.filter(function (root) {
-        return exclude_roots.every(function (exclude_root) {
-          return root.substr(0, exclude_root.length) !== exclude_root;
-        });
-      });
+    var i = 0;
+    (function iterateNextExtension() {
+      var extension = extensions[i++];
 
-      files[root] = results;
-      iterateNextRoot();
-    });
+      var proc = exec('find ' + root + ' -name "*.' + extension + '"');
+      process.stderr.write('find ' + root + ' -name "*.' + extension + '"\n');
+      proc.stdout.on('data', function (chunk) {
+        data += chunk;
+      });
+      proc.stderr.on('data', function (chunk) {
+        process.stderr.write(chunk.toString());
+      });
+      proc.on('exit', function (code) {
+        if (i !== extensions.length) {
+          iterateNextExtension();
+
+        } else {
+          var results = data.trim().split("\n");
+          if (!results[0]) {
+            results = [];
+          }
+          results = results.filter(function (root) {
+            return exclude_roots.every(function (exclude_root) {
+              return root.substr(0, exclude_root.length) !== exclude_root;
+            });
+          });
+
+          files[root] = results;
+          iterateNextRoot();
+        }
+      });
+    }());
 
   } else {
     iterateFiles();
