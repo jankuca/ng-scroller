@@ -121,3 +121,7 @@ mkdir -p $CLOSURE_TEMPLATES_PATH
 unzip $CLOSURE_TEMPLATES_ARCHIVE_NAME -d $CLOSURE_TEMPLATES_PATH
 rm $CLOSURE_TEMPLATES_ARCHIVE_NAME
 
+# Copy Soy (Google Closure Templates) Utils to the public dir
+mkdir -p $PUBLIC_DIR/lib/closure-templates
+cp $CLOSURE_TEMPLATES_PATH/*.js $PUBLIC_DIR/lib/closure-templates
+
