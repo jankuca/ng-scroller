@@ -49,6 +49,10 @@ fi
 # Ask for the project name
 read -p "Name of this project in package.json: [app] " APP_NAME
 [ -z $APP_NAME ] && APP_NAME="app"
+# Ask for the project description
+read -p "Description of this project in package.json: [] " APP_DESCRIPTION
+# Ask for the project author
+read -p "Author of this project in package.json: [] " APP_AUTHOR
 
 # Rename the original branch to temp
 git branch -m master temp
@@ -63,7 +67,12 @@ git clean -dfx
 # Create a package.json file
 # Note: We cannot commit without any files added to the repository
 #   and a package.json file is not completely useless.
-echo -e "{\n  \"name\": \"$APP_NAME\"\n}" > $PROJECT_DIR/package.json
+echo -e "{\n\
+  \"name\": \"$APP_NAME\",\n\
+  \"description\": \"$APP_DESCRIPTION\",\n\
+  \"author\": \"$APP_AUTHOR\",\n\
+  \"dependencies\": {}\n\
+}" > $PROJECT_DIR/package.json
 # Stage the created package.json file
 git add $PROJECT_DIR/package.json
 # Commit the file as the project's initial commit
