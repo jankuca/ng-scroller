@@ -55,6 +55,11 @@ java -jar $SOY2JS_COMPILER_PATH                                               \
 || exit 1
 echo -e "ok\n"
 
+# Remove goog.require('soy') calls from the generated JS files
+# These calls are not needed when the --codeStyle flag is set to "concat".
+echo -n "-- Remove goog.require('soy') calls from the JavaScript files: "
+`cd $TEMPLATE_JS_DIR; sed -i '' "s/goog.require('soy');/ /g" *.js` \
+&& echo -e "ok\n"
 
 # Remove the temporary directory
 echo "-- Remove temporary files";
