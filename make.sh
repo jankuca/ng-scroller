@@ -83,11 +83,18 @@ echo -e "{\n\
 # Stage the created package.json file
 git add $PROJECT_DIR/package.json
 # Commit the file as the project's initial commit
-git commit -m 'initial commit'
+git commit -m 'initial commit' || exit 1
 
 
 # Merge the original branch to the new master branch without fast-forwarding
-git merge origin/master --no-ff -m 'add closure-boilerplate'
+git merge origin/master --no-ff -m 'add closure-boilerplate' || exit 1
+# The final git history is now:
+#  *   add closure-boilerplate
+#  |\
+#  | * closure-boilerplate history
+#  | * initial commit of closure-boilerplate
+#  |
+#  *   initial commit of this project
 
 
 # Rename the remote to boilerplate
