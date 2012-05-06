@@ -8,6 +8,7 @@ var path = require('path');
 var roots = [];
 var exclude_roots = [];
 var target = null;
+var plugins = [];
 
 process.argv.slice(2).forEach(function (arg) {
   if (arg.substr(0, 2) === '--') {
@@ -24,6 +25,9 @@ process.argv.slice(2).forEach(function (arg) {
       break;
     case 'target':
       target = value;
+      break;
+    case 'plugin':
+      plugins.push(value);
       break;
     }
   }
@@ -72,11 +76,17 @@ function iterateNextRoot() {
 }
 
 function iterateFiles() {
+  var plugins = loadPlugins();
+
   Object.keys(files).forEach(function (root) {
     files[root].forEach(function (file) {
       var source = fs.readFileSync(file[0], 'utf8');
-      source = source.replace(/\{\{/g, '{lb}{lb}');
-      source = source.replace(/\}\}/g, '{rb}{rb}');
+      plugins.passes.forEach(function (pass) {
+        source = pass(source);
+      });
+
+      source = applyDirectivesTo(source, plugins.directives);
+
       fs.writeFileSync(path.join(target, file[1]), source, 'utf8');
     });
   });
@@ -84,5 +94,53 @@ function iterateFiles() {
   process.stderr.write(__filename + ': Soy files fixed');
 }
 
+function loadPlugins() {
+  var passes = [];
+  var directives = {};
+
+  plugins.forEach(function (file_path) {
+    var plugin = require(file_path);
+    if (plugin.passes) {
+      passes = passes.concat(plugin.passes);
+    }
+    if (plugin.directives) {
+      Object.keys(plugin.directives).forEach(function (key) {
+        directives[key] = plugin.directives[key];
+      });
+    }
+  });
+
+  return {
+    passes: passes,
+    directives: directives
+  };
+}
+
+function applyDirectivesTo(source, directives) {
+  var rx = /\{\$([^}]+)\s*\|((?:\w+(?::[^\s}]+)?\s)*\w+(?::[^\s}]+)?)\}/;
+
+  var matches = source.match(new RegExp(rx.source, 'g')) || [];
+  matches.forEach(function (match) {
+    var m = match.match(rx);
+
+    var args = [ m[1] ];
+    var key_parts = [];
+
+    var parts = m[2].split(/\s/);
+    parts.forEach(function (part) {
+      part = part.split(':');
+      key_parts.push(part[0]);
+      args.push(part[1] || null);
+    });
+
+    var directive = directives[key_parts.join(':')];
+    if (directive) {
+      var output = directive.apply(null, args);
+      source = source.replace(match, output);
+    }
+  });
+
+  return source;
+}
 
 iterateNextRoot();

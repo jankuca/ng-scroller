@@ -32,12 +32,13 @@ cd $TEMPLATE_SOY_TEMP_DIR
 
 
 # Fix the soy templates
-# This converts double braces (i.e. {{ and }}) to valid {lb} and {rb} commands.
+# This uses the provided plugins.
 echo "-- Fix soy files"
 $BUILD_DIR/fix-soy.js                                                         \
   --root=$TEMPLATE_SOY_DIR                                                    \
   --exclude=$TEMPLATE_SOY_TEMP_DIR                                            \
   --target=$TEMPLATE_SOY_TEMP_DIR                                             \
+  --plugin=$BUILD_DIR/soy-plugins/bind.js                                     \
 > $HTML_JS_FILE                                                               \
 || exit 1
 echo -e "\n"
