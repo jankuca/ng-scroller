@@ -34,7 +34,7 @@ cd $TEMPLATE_SOY_TEMP_DIR
 # Fix the soy templates
 # This uses the provided plugins.
 echo "-- Fix soy files"
-$BUILD_DIR/fix-soy.js                                                         \
+node $BUILD_DIR/fix-soy.js                                                         \
   --root=$TEMPLATE_SOY_DIR                                                    \
   --exclude=$TEMPLATE_SOY_TEMP_DIR                                            \
   --target=$TEMPLATE_SOY_TEMP_DIR                                             \

@@ -24,7 +24,7 @@ echo ""
 # Extract JavaScript global references from HTML files into a temporary JS file
 echo "-- Extract JavaScript references from HTML files"
 echo $HTML_JS_FILE
-$BUILD_DIR/compile-html.js                                                    \
+node $BUILD_DIR/compile-html.js                                                    \
   --root=$PUBLIC_DIR                                                          \
   --exclude=$PUBLIC_DIR/lib                                                   \
   --extension="html"                                                          \
@@ -63,7 +63,7 @@ echo
 
 # Fix file paths in the generated source map
 echo "-- Fix file paths in the generated source map"
-$BUILD_DIR/fix-source-map.js                                                  \
+node $BUILD_DIR/fix-source-map.js                                                  \
   --root=$PUBLIC_DIR                                                          \
   --map=$TARGET_DIR/$SOURCE_MAP_FILE                                          \
 || exit 1
