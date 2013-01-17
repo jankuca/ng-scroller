@@ -52,6 +52,7 @@ $CLOSURE_LIBRARY_DIR/closure/bin/build/closurebuilder.py                      \
   --compiler_flags="--warning_level=VERBOSE"                                  \
   --compiler_flags="--language_in=ECMASCRIPT5_STRICT"                         \
   --compiler_flags="--create_source_map=$TARGET_DIR/$SOURCE_MAP_FILE"         \
+  --compiler_flags="--js=$CLOSURE_LIBRARY_DIR/closure/goog/deps.js"           \
   --compiler_flags="--output_wrapper=(function(){%output%}.call(this));       \
     //@ sourceMappingURL=$SOURCE_MAP_FILE"                                    \
 > $TARGET_DIR/$TARGET_FILE                                                    \
