@@ -4,5 +4,6 @@
   "author": "",
   "description": "",
   "dependencies": {
+    "grunt-exec": "0.3.x"
   }
 }
