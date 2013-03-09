@@ -4,6 +4,7 @@
   "author": "",
   "description": "",
   "dependencies": {
+    "rework": "0.13.x",
     "grunt-exec": "0.3.x"
   }
 }
