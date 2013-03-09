@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "closure-compiler": "https://code.google.com/p/closure-compiler/",
+    "closure-templates": "git://github.com/knutwalker/google-closure-templates.git",
+    "closure-library": "git://github.com/Steida/google-closure-library.git"
+  }
+}
