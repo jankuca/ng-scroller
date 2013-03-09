@@ -24,16 +24,14 @@ Read [this blog post](http://blog.jankuca.com/post/18726341670/google-closure-de
 
 > Do not fork this repository to use it. Fork only if you want to contribute. Thanks.
 
-    git clone git://github.com/jankuca/closure-boilerplate project-name
+    git clone -o boilerplate git://github.com/jankuca/closure-boilerplate.git project-name
     cd project-name
-    ./make.sh
-
-The `make.sh` bash script will *fetch dependencies* (*Google Closure Library*, *Google Closure Compiler* and *Google Closure Templates*).
+    bower install
 
 Then, you have two options:
 
 1. You can reset the repository by running `rm -rf .git && git init`.
-2. You can keep the history and the remote to be able to merge  future boilerplate commits to your application. The `make.sh` script makes sure the `boilerplate` remote points to this repository. When there are new commits to the boilerplate, you can merge them to your app by running
+2. You can keep the history and the remote to be able to merge future boilerplate commits to your application. The `make.sh` script makes sure the `boilerplate` remote points to this repository. When there are new commits to the boilerplate, you can merge them to your app by running
 
 ```
 git fetch boilerplate
