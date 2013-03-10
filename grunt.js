@@ -20,6 +20,9 @@ module.exports = function (grunt) {
       soy: {
         command: './build/soy.sh'
       },
+      'lint-js': {
+        command: './build/lint.sh'
+      },
       rework: {
         command: './build/rework.js'
       }
@@ -41,6 +44,10 @@ module.exports = function (grunt) {
 
   grunt.registerTask('soy', [
     'exec:soy',
+  ]);
+
+  grunt.registerTask('lint', [
+    'exec:lint-js',
   ]);
 
   grunt.registerTask('js', [
