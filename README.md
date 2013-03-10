@@ -32,6 +32,8 @@ The idea is that you clone this repository, modify the build settings and start 
 
     git clone -o boilerplate git://github.com/jankuca/closure-boilerplate.git project-name
     cd project-name
+
+    npm install
     bower install
 
 Then, you have two options:
