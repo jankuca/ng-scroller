@@ -5,3 +5,8 @@ Thumbs.db
 
 # Ignore Sublime Text workspace files
 *.sublime-workspace
+
+node_modules/
+public/lib/
+public/lib/closure-library/
+public/lib/closure-templates/
