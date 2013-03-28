@@ -44,7 +44,7 @@ echo $TARGET_DIR/$TARGET_FILE
 $CLOSURE_LIBRARY_DIR/closure/bin/build/closurebuilder.py                      \
   --root="$PUBLIC_DIR/lib"                                                    \
   --root="$PUBLIC_DIR/app"                                                    \
-  --namespace="app.main"                                                      \
+  --namespace="app"                                                           \
   --namespace="app.htmlReferences"                                            \
   --output_mode="compiled"                                                    \
   --compiler_jar="$CLOSURE_COMPILER_PATH"                                     \

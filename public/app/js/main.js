@@ -1,6 +1,6 @@
 'use strict';
 
-goog.provide('app.main');
+goog.provide('app');
 
 
 /**
@@ -13,4 +13,4 @@ app.main = function () {
 };
 
 
-goog.exportSymbol('app.main', app.main);
+goog.exportSymbol('main', app.main);
