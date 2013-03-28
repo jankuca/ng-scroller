@@ -33,8 +33,7 @@ The idea is that you clone this repository, modify the build settings and start 
     git clone -o boilerplate git://github.com/jankuca/closure-boilerplate.git project-name
     cd project-name
 
-    npm install
-    bower install
+    ./build/install.sh
 
 Then, you have two options:
 
@@ -45,12 +44,6 @@ Then, you have two options:
 git fetch boilerplate
 git merge boilerplate/master --no-ff -m 'update closure-boilerplate'
 ```
-
-## Configuration
-
-The default configuration might not fit your needs. It is likely that you will want to modify the paths in the compile scripts.
-
-The scripts you want to modify are `build/lint.sh` and `build/compile.sh`. It is not recommended you modify other scripts.
 
 ## Usage
 
