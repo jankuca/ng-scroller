@@ -65,3 +65,18 @@ chmod +x "public/lib/closure-library/closure/bin/build/closurebuilder.py" && {
 }
 
 echo ""
+
+
+boilerplate_url=$(git config --get remote.origin.url)
+git remote rm origin
+git remote add closure-boilerplate "$boilerplate_url"
+
+last_commit_subject=$(git log --oneline -n1 --format="format:%s")
+if [ "$last_commit_subject" = "[clean initial environment]" ]; then
+  git reset --hard HEAD~1
+fi
+
+rm "README.md"
+git rm "README.md"
+git add .
+git commit -m '[clean initial environment]'
