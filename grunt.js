@@ -11,12 +11,6 @@ module.exports = function (grunt) {
     },
 
     exec: {
-      npm: {
-        command: 'npm install'
-      },
-      bower: {
-        command: 'bower install'
-      },
       deps: {
         command: './build/deps.sh'
       },
@@ -43,14 +37,9 @@ module.exports = function (grunt) {
     'js'
   ]);
 
-  grunt.registerTask('install', [
-    'exec:npm',
-    'exec:bower'
-  ]);
-
   grunt.registerTask('css', [
     'concat:css',
-    'exec:rework',
+    'exec:rework'
   ]);
 
   grunt.registerTask('soy', [
