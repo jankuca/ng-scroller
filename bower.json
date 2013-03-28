@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "closure-templates": "git://github.com/knutwalker/google-closure-templates.git",
     "closure-library": "git://github.com/Steida/google-closure-library.git"
   }
 }
