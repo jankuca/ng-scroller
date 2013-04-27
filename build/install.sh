@@ -64,6 +64,13 @@ chmod +x "public/lib/closure-library/closure/bin/build/closurebuilder.py" && {
   echo -e "\033[0;31mfail\033[0m"
 }
 
+echo -en "  - \033[0;37mdepswriter.py\033[0m ... "
+chmod +x "public/lib/closure-library/closure/bin/build/depswriter.py" && {
+  echo -e "\033[0;32mok\033[0m"
+} || {
+  echo -e "\033[0;31mfail\033[0m"
+}
+
 echo ""
 
 
