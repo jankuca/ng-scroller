@@ -7,7 +7,7 @@
 
 # The root project directory
 # All the following paths are relative to this directory
-PROJECT_DIR=`cd $PROJECT_DIR_RELATIVE ; pwd`
+PROJECT_DIR="."
 
 # The directory in which is this script placed
 BUILD_DIR=$PROJECT_DIR/build
