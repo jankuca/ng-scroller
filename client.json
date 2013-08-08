@@ -1,0 +1,14 @@
+{
+  "app": {
+    "output.deps": "./build/deps.js",
+    "namespaces": [ "app" ],
+    "roots": [
+      "./app",
+      "./lib"
+    ]
+  },
+
+  "externs.angular": "./externs/angular.js",
+
+  "closure-library": "./lib/closure-library"
+}

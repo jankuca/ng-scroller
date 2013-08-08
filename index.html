@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="./app/style.css">
+
+<script src="./lib/angular/angular.min.js"></script>
+<script src="./lib/closure-library/closure/goog/base.js"></script>
+<script src="./build/deps.js"></script>
+<script src="./app/main.js"></script>
+
+<body ng-app="app">
+
+<div class="page" ng-controller="NewsFeedController">
+  <h4>News Feed</h4>
+  <div class="scroller" ng-scroller="ng.InPageScrollerStyler">
+    <div class="scroller-carousel">
+      <div class="post media" ng-scroller-repeat="post in posts">
+        <img class="pull-left media-object" src="http://placekitten.com/40/40?image={{post.image_id}}">
+        <div class="media-body">
+          <p>{{post.text}}</p>
+          <small>{{post.ts_ago}} • <a href="#">Like</a> • <a href="#">Comment</a></small>
+        </div>
+      </div>
+      <div class="loading"></div>
+    </div>
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="scroller" ng-scroller ng-controller="TickerController">
+    <div class="scroller-carousel">
+      <div class="update media" ng-scroller-repeat="update in updates">
+        <img class="pull-left media-object" src="http://placekitten.com/32/32?image={{update.image_id}}">
+        <div class="media-body">
+          <p>{{update.text}}</p>
+          <small>{{update.ts_ago}} • <a href="#">Like</a></small>
+        </div>
+      </div>
+      <div class="loading" ng-scroller-spinner></div>
+    </div>
+  </div>
+  <div class="scroller" ng-controller="ChatListController">
+    <div class="scroller-carousel">
+      <a href="#" class="contact media" ng-repeat="contact in contacts">
+        <img class="pull-left media-object" src="http://placekitten.com/32/32?image={{$index}}">
+        <span class="media-body">{{contact.name}}</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  main();
+</script>

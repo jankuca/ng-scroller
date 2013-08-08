@@ -1,0 +1,82 @@
+
+body, h4 {
+  font-family: 'Lucida Grande', sans-serif;
+}
+
+h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+body {
+  max-width: 800px;
+  margin: 50px auto 100px;
+  padding-left: 50px;
+  padding-right: 250px;
+}
+
+.page {
+}
+
+.post {
+  margin: 0;
+  padding: 10px 0;
+  /*border-top: 1px solid #DDD;*/
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  border-left: 1px solid #CCC;
+  background-color: #F5F5F5;
+}
+
+.sidebar .scroller {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 50%;
+  border-top: 4px double #CCC;
+}
+
+.sidebar .scroller:first-child {
+  border-top: 0;
+}
+
+.sidebar .scroller {
+  overflow: auto;
+}
+
+.sidebar .update,
+.sidebar .contact {
+  display: block;
+  margin: 0;
+  padding: 4px;
+  /*border-bottom: 1px solid #E5E5E5;*/
+  font-size: 12px;
+}
+
+.sidebar .contact {
+  line-height: 32px;
+}
+
+.sidebar .contact:hover {
+  background-color: #FAFAFA;
+}
+
+
+.loading {
+  height: 40px;
+  background-image: url('./loading.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.sidebar .loading {
+  background-size: 10px 10px;
+}

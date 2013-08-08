@@ -1,0 +1,8 @@
+{
+  "name": "ng-scroller",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "closure-runner": "*"
+  }
+}
