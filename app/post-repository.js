@@ -2,7 +2,7 @@ goog.provide('app.PostRepository');
 
 
 /**
- * @construtor
+ * @constructor
  * @ngInject
  */
 app.PostRepository = function ($q, $timeout) {
@@ -12,13 +12,13 @@ app.PostRepository = function ($q, $timeout) {
 
 
 /**
- * @param {*} prev_id The ID of the item before which to fetch the range.
+ * @param {*} next_id The ID of the item before which to fetch the range.
  * @param {number} length The (maximum) number of items to fetch.
  */
 app.PostRepository.prototype.getRangeBefore = function (next_id, length) {
   var deferred = this.$q.defer();
 
-  console.log('datastore: request %d after %d', length, next_id);
+  window.console.log('datastore: request %d after %d', length, next_id);
   this.$timeout(function () {
     var items = [];
     for (var i = 0; i < length; ++i) {
@@ -31,7 +31,7 @@ app.PostRepository.prototype.getRangeBefore = function (next_id, length) {
       });
     }
 
-    console.log('datastore: return %d after %d', length, next_id);
+    window.console.log('datastore: return %d after %d', length, next_id);
     deferred.resolve(items);
   }, 2000);
 
@@ -46,7 +46,7 @@ app.PostRepository.prototype.getRangeBefore = function (next_id, length) {
 app.PostRepository.prototype.getRangeAfter = function (prev_id, length) {
   var deferred = this.$q.defer();
 
-  console.log('datastore: request %d after %d', length, prev_id);
+  window.console.log('datastore: request %d after %d', length, prev_id);
   this.$timeout(function () {
     var items = [];
     for (var i = 0; i < length; ++i) {
@@ -59,7 +59,7 @@ app.PostRepository.prototype.getRangeAfter = function (prev_id, length) {
       });
     }
 
-    console.log('datastore: return %d after %d', length, prev_id);
+    window.console.log('datastore: return %d after %d', length, prev_id);
     deferred.resolve(items);
   }, 2000);
 

@@ -3,6 +3,12 @@ goog.provide('app.ChatListController');
 goog.require('ng.Controller');
 
 
+/**
+ * @constructor
+ * @extends {ng.Controller}
+ * @param {!angular.Scope} $scope A scope.
+ * @ngInject
+ */
 app.ChatListController = function ($scope) {
   ng.Controller.call(this, $scope);
 

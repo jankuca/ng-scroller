@@ -2,7 +2,7 @@ goog.provide('app.UpdateRepository');
 
 
 /**
- * @construtor
+ * @constructor
  * @ngInject
  */
 app.UpdateRepository = function ($q, $timeout) {
@@ -18,7 +18,7 @@ app.UpdateRepository = function ($q, $timeout) {
 app.UpdateRepository.prototype.getRangeBefore = function (next_id, length) {
   var deferred = this.$q.defer();
 
-  console.log('datastore: request %d before %d', length, next_id);
+  window.console.log('datastore: request %d before %d', length, next_id);
   this.$timeout(function () {
     var items = [];
     for (var i = 0; i < length; ++i) {
@@ -31,7 +31,7 @@ app.UpdateRepository.prototype.getRangeBefore = function (next_id, length) {
       });
     }
 
-    console.log('datastore: return %d before %d', length, next_id);
+    window.console.log('datastore: return %d before %d', length, next_id);
     deferred.resolve(items);
   }, 2000);
 
@@ -46,7 +46,7 @@ app.UpdateRepository.prototype.getRangeBefore = function (next_id, length) {
 app.UpdateRepository.prototype.getRangeAfter = function (prev_id, length) {
   var deferred = this.$q.defer();
 
-  console.log('datastore: request %d after %d', length, prev_id);
+  window.console.log('datastore: request %d after %d', length, prev_id);
   this.$timeout(function () {
     var items = [];
     for (var i = 0; i < length; ++i) {
@@ -59,7 +59,7 @@ app.UpdateRepository.prototype.getRangeAfter = function (prev_id, length) {
       });
     }
 
-    console.log('datastore: return %d after %d', length, prev_id);
+    window.console.log('datastore: return %d after %d', length, prev_id);
     deferred.resolve(items);
   }, 2000);
 
