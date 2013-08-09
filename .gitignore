@@ -1,5 +1,5 @@
 build/
-lib/
+lib/*
 node_modules/
 
 !lib/ng/
