@@ -1,11 +1,13 @@
 {
   "app": {
+    "output": "./build/app.js",
     "output.deps": "./build/deps.js",
     "namespaces": [ "app" ],
     "roots": [
       "./app",
       "./lib"
-    ]
+    ],
+    "closure-compiler.flags.angular_pass": true
   },
 
   "externs.angular": "./externs/angular.js",

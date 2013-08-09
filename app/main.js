@@ -11,6 +11,9 @@ goog.require('ng.directive');
 
 
 app.main = function () {
+  goog.exportSymbol('ng.ScrollerStyler', ng.ScrollerStyler);
+  goog.exportSymbol('ng.InPageScrollerStyler', ng.InPageScrollerStyler);
+
   app.module = angular.module('app', []);
 
   app.module.controller('ChatListController', app.ChatListController);
