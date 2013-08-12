@@ -29,8 +29,8 @@
 
 <div class="sidebar">
   <div class="scroller" ng-scroller ng-controller="TickerController">
-    <div class="scroller-carousel">
-      <div class="update media" ng-scroller-repeat="update in updates">
+    <div class="scroller-carousel" ng-scroller-repeat="update in updates">
+      <div class="update media">
         <img class="pull-left media-object" src="http://placekitten.com/32/32?image={{update.image_id}}">
         <div class="media-body">
           <p>{{update.text}}</p>
