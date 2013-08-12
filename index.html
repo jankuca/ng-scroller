@@ -13,15 +13,25 @@
 
 <div class="page" ng-controller="NewsFeedController">
   <h4>News Feed</h4>
-  <div class="scroller" ng-scroller="ng.InPageScrollerStyler">
-    <div class="scroller-carousel">
-      <div class="post media" ng-scroller-repeat="post in posts">
+  <div class="scroller" ng-scroller="app.NewsFeedScroller">
+    <div class="scroller-carousel" ng-scroller-repeat="post in posts">
+      <div class="post media">
         <img class="pull-left media-object" src="http://placekitten.com/40/40?image={{post.image_id}}">
         <div class="media-body">
           <p>{{post.text}}</p>
-          <small>{{post.ts_ago}} • <a href="#">Like</a> • <a href="#">Comment</a></small>
+          <p><small>{{post.ts_ago}} • <a href="#">Like</a> • <a href="#">Comment</a></small></p>
         </div>
       </div>
+
+      <div class="post media post-with-image" ng-scroller-template="photo">
+        <img class="pull-left media-object" src="http://placekitten.com/40/40?image={{post.image_id}}">
+        <div class="media-body">
+          <p>{{post.text}}</p>
+          <img class="post-photo" ng-src="{{post.photo_url}}">
+          <p><small>{{post.ts_ago}} • <a href="#">Like</a> • <a href="#">Comment</a></small></p>
+        </div>
+      </div>
+
       <div class="loading"></div>
     </div>
   </div>
@@ -34,7 +44,7 @@
         <img class="pull-left media-object" src="http://placekitten.com/32/32?image={{update.image_id}}">
         <div class="media-body">
           <p>{{update.text}}</p>
-          <small>{{update.ts_ago}} • <a href="#">Like</a></small>
+          <p><small>{{update.ts_ago}} • <a href="#">Like</a></small></p>
         </div>
       </div>
       <div class="loading" ng-scroller-spinner></div>

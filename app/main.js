@@ -2,6 +2,7 @@ goog.provide('app');
 
 goog.require('app.ChatListController');
 goog.require('app.NewsFeedController');
+goog.require('app.NewsFeedScroller');
 goog.require('app.PostRepository');
 goog.require('app.TickerController');
 goog.require('app.UpdateRepository');
