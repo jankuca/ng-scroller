@@ -13,7 +13,7 @@
 
 <div class="page" ng-controller="NewsFeedController">
   <h4>News Feed</h4>
-  <div class="scroller" ng-scroller="app.NewsFeedScroller">
+  <div class="scroller" ng-scroller="ng.InPageScrollerStyler" ng-scroller-template-callback="getScrollerItemTemplateKey">
     <div class="scroller-carousel" ng-scroller-repeat="post in posts">
       <div class="post media">
         <img class="pull-left media-object" src="http://placekitten.com/40/40?image={{post.image_id}}">
