@@ -21,7 +21,7 @@ app.main = function () {
   app.module.service('posts', app.PostRepository);
   app.module.service('updates', app.UpdateRepository);
 
-  app.module.directive('ngScrollerRepeat', ng.directive(ng.Scroller));
+  app.module.directive('ngScroller', ng.directive(ng.Scroller));
 };
 
 
