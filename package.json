@@ -1,8 +1,11 @@
 {
   "name": "ng-scroller",
   "dependencies": {
+    "bower": "*",
+    "closure-runner": "*",
+    "node-static": "*"
   },
-  "devDependencies": {
-    "closure-runner": "*"
+  "scripts": {
+    "postinstall": "./build.sh"
   }
 }
