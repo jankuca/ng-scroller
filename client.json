@@ -1,18 +1,18 @@
 {
-  "apps.main": {
-    "output.deps": "./build/deps.js",
+  "apps.facebook": {
+    "output.deps": "./examples/build/facebook-deps.js",
     "namespaces": [ "app" ],
     "roots": [
-      "./app",
+      "./examples/facebook",
       "./lib"
     ]
   },
 
   "apps.twitter": {
-    "output.deps": "./build/twitter-deps.js",
-    "namespaces": [ "twitter" ],
+    "output.deps": "./examples/build/twitter-deps.js",
+    "namespaces": [ "app" ],
     "roots": [
-      "./app",
+      "./examples/twitter",
       "./lib"
     ]
   },

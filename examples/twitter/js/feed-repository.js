@@ -1,11 +1,11 @@
-goog.provide('twitter.FeedRepository');
+goog.provide('app.FeedRepository');
 
 
 /**
  * @constructor
  * @ngInject
  */
-twitter.FeedRepository = function () {
+app.FeedRepository = function () {
   this.cache = [];
   this.cache_ids = [];
 };
@@ -15,8 +15,8 @@ twitter.FeedRepository = function () {
  * @param {*} next_id The ID of the item before which to fetch the range.
  * @param {number} length The (maximum) number of items to fetch.
  */
-twitter.FeedRepository.prototype.getRangeBefore = function (next_id, length, callback) {
-  var cache_after_key = next_id ? goog.array.indexOf(this.cache_ids, next_id) : self.cache.length - 1;
+app.FeedRepository.prototype.getRangeBefore = function (next_id, length, callback) {
+  var cache_after_key = next_id ? goog.array.indexOf(this.cache_ids, next_id) : this.cache.length - 1;
   if (cache_after_key >= length) {
     var items = this.cache.slice(cache_after_key - length, cache_after_key);
     if (items.length === length) {
@@ -40,7 +40,7 @@ twitter.FeedRepository.prototype.getRangeBefore = function (next_id, length, cal
  * @param {*} prev_id The ID of the item after which to fetch the range.
  * @param {number} length The (maximum) number of items to fetch.
  */
-twitter.FeedRepository.prototype.getRangeAfter = function (prev_id, length, callback) {
+app.FeedRepository.prototype.getRangeAfter = function (prev_id, length, callback) {
   var cache_before_key = prev_id ? goog.array.indexOf(this.cache_ids, prev_id) : 0;
   if (cache_before_key !== -1 && this.cache.length >= cache_before_key + length) {
     var items = this.cache.slice(cache_before_key + 1, cache_before_key + 1 + length);
@@ -61,11 +61,11 @@ twitter.FeedRepository.prototype.getRangeAfter = function (prev_id, length, call
 };
 
 
-twitter.FeedRepository.prototype.generateItems_ = function (length) {
+app.FeedRepository.prototype.generateItems_ = function (length) {
   var items = [];
   for (var i = 0; i < length; ++i) {
     var id = Math.round(Math.random() * 1000000);
-    var author = twitter.FeedRepository.users[Math.floor(Math.random() * twitter.FeedRepository.users.length)];
+    var author = app.FeedRepository.users[Math.floor(Math.random() * app.FeedRepository.users.length)];
     var type = Math.round(Math.random() * 4);
     var item = {
       'id': id,
@@ -77,14 +77,14 @@ twitter.FeedRepository.prototype.generateItems_ = function (length) {
     switch (type) {
     case 0: case 1: case 2:
       item['type'] = 'tweet';
-      item['text'] = twitter.FeedRepository.texts[Math.floor(Math.random() * twitter.FeedRepository.texts.length)];
+      item['text'] = app.FeedRepository.texts[Math.floor(Math.random() * app.FeedRepository.texts.length)];
       break;
     case 3:
       item['type'] = 'fav';
       item['text'] = 'favorited'
       item['ref'] = {
         'ago': Math.round(Math.random() * 14) + ' days',
-        'text': twitter.FeedRepository.texts[Math.floor(Math.random() * twitter.FeedRepository.texts.length)]
+        'text': app.FeedRepository.texts[Math.floor(Math.random() * app.FeedRepository.texts.length)]
       };
       break;
     case 4:
@@ -92,7 +92,7 @@ twitter.FeedRepository.prototype.generateItems_ = function (length) {
       item['text'] = 'retweeted'
       item['ref'] = {
         'ago': Math.round(Math.random() * 14) + ' days',
-        'text': twitter.FeedRepository.texts[Math.floor(Math.random() * twitter.FeedRepository.texts.length)]
+        'text': app.FeedRepository.texts[Math.floor(Math.random() * app.FeedRepository.texts.length)]
       };
       break;
     }
@@ -104,7 +104,8 @@ twitter.FeedRepository.prototype.generateItems_ = function (length) {
 };
 
 
-twitter.FeedRepository.prototype.cacheItemsBefore_ = function (next_id, items) {
+app.FeedRepository.prototype.cacheItemsBefore_ = function (next_id, items) {
+  var length = items.length;
   var cache_after_key = goog.array.indexOf(this.cache_ids, next_id);
 
   var cache_splice_args = [ cache_after_key - length, length ].concat(items);
@@ -118,7 +119,8 @@ twitter.FeedRepository.prototype.cacheItemsBefore_ = function (next_id, items) {
 };
 
 
-twitter.FeedRepository.prototype.cacheItemsAfter_ = function (prev_id, items) {
+app.FeedRepository.prototype.cacheItemsAfter_ = function (prev_id, items) {
+  var length = items.length;
   var cache_before_key = goog.array.indexOf(this.cache_ids, prev_id);
 
   var cache_splice_args = [ cache_before_key + 1, length ].concat(items);
@@ -133,7 +135,7 @@ twitter.FeedRepository.prototype.cacheItemsAfter_ = function (prev_id, items) {
 
 
 
-twitter.FeedRepository.users = [
+app.FeedRepository.users = [
   {
     "username": "Cumrikova",
     "realname": "Caroline",
@@ -231,7 +233,7 @@ twitter.FeedRepository.users = [
   }
 ];
 
-twitter.FeedRepository.texts = [
+app.FeedRepository.texts = [
   'Well, the way they make shows is, they make one show.',
   'That show\'s called a pilot.',
   'Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows.',

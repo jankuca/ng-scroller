@@ -2,21 +2,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no">
 
-<link rel="stylesheet" href="./app/ratchet.css">
-<link rel="stylesheet" href="./app/twitter.css">
+<link rel="stylesheet" href="./twitter/css/ratchet.css">
+<link rel="stylesheet" href="./twitter/css/twitter.css">
 
-<script src="./lib/angular/angular.js"></script>
-<script src="./lib/closure-library/closure/goog/base.js"></script>
-<script src="./build/deps.js"></script>
-<script src="./app/twitter.js"></script>
+<script src="../lib/angular/angular.js"></script>
+<script src="../lib/closure-library/closure/goog/base.js"></script>
+<script src="./build/twitter-deps.js"></script>
+<script src="./twitter/js/main.js"></script>
 
-<body ng-app="twitter">
+<body ng-app="app">
 
 <header class="bar-title">
   <h1 class="title">Title</h1>
 </header>
 
-<div class="content" ng-controller="twitter.FeedController" ng-scroller>
+<div class="content" ng-controller="app.FeedController" ng-scroller>
   <ul class="list" ng-scroller-repeat="item in feed">
     <li>
       <a class="item item-{{item.type}}" href="#"

@@ -72,7 +72,7 @@ body {
 
 .loading {
   height: 40px;
-  background-image: url('./loading.gif');
+  background-image: url('../img/loading.gif');
   background-repeat: no-repeat;
   background-position: center center;
 }

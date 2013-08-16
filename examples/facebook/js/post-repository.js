@@ -95,6 +95,7 @@ app.PostRepository.prototype.generateItems_ = function (length) {
 
 
 app.PostRepository.prototype.cacheItemsBefore_ = function (next_id, items) {
+  var length = items.length;
   var cache_after_key = goog.array.indexOf(this.cache_ids, next_id);
 
   var cache_splice_args = [ cache_after_key - length, length ].concat(items);
@@ -104,12 +105,12 @@ app.PostRepository.prototype.cacheItemsBefore_ = function (next_id, items) {
     return item['id'];
   });
   var cache_ids_splice_args = [ cache_after_key - length, length ].concat(ids);
-  console.log(cache_ids_splice_args)
   this.cache_ids.splice.apply(this.cache_ids, cache_ids_splice_args);
 };
 
 
 app.PostRepository.prototype.cacheItemsAfter_ = function (prev_id, items) {
+  var length = items.length;
   var cache_before_key = goog.array.indexOf(this.cache_ids, prev_id);
 
   var cache_splice_args = [ cache_before_key + 1, length ].concat(items);
@@ -119,6 +120,5 @@ app.PostRepository.prototype.cacheItemsAfter_ = function (prev_id, items) {
     return item['id'];
   });
   var cache_ids_splice_args = [ cache_before_key + 1, length ].concat(ids);
-  console.log(cache_ids_splice_args)
   this.cache_ids.splice.apply(this.cache_ids, cache_ids_splice_args);
 };

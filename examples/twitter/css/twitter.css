@@ -70,7 +70,7 @@ body {
 .spinner-item {
   height: 32px;
   border-bottom: 0 !important;
-  background: #EEE url('./loading.gif') no-repeat center center;
+  background: #EEE url('../img/loading.gif') no-repeat center center;
 }
 
 
