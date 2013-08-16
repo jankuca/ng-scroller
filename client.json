@@ -1,7 +1,16 @@
 {
-  "app": {
+  "apps.main": {
     "output.deps": "./build/deps.js",
     "namespaces": [ "app" ],
+    "roots": [
+      "./app",
+      "./lib"
+    ]
+  },
+
+  "apps.twitter": {
+    "output.deps": "./build/twitter-deps.js",
+    "namespaces": [ "twitter" ],
     "roots": [
       "./app",
       "./lib"

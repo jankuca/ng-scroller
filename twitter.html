@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+
+<link rel="stylesheet" href="./app/ratchet.css">
+<link rel="stylesheet" href="./app/twitter.css">
+
+<script src="./lib/angular/angular.js"></script>
+<script src="./lib/closure-library/closure/goog/base.js"></script>
+<script src="./build/deps.js"></script>
+<script src="./app/twitter.js"></script>
+
+<body ng-app="twitter">
+
+<header class="bar-title">
+  <h1 class="title">Title</h1>
+</header>
+
+<div class="content" ng-controller="twitter.FeedController" ng-scroller>
+  <ul class="list" ng-scroller-repeat="item in feed">
+    <li>
+      <a class="item item-{{item.type}}" href="#"
+        ng-class="{ 'favorited': item.favorited, 'retweeted': item.retweeted }">
+
+        <span class="meta" ng-if="item.type == 'tweet'">
+          <img class="icon" ng-src="{{item.author.icon}}">
+          <small class="timestamp">{{item.ago}}</small>
+          <strong class="realname">{{item.author.realname}}</strong>
+          <small class="username">@{{item.author.username}}</small>
+        </span>
+        <span ng-if="item.type == 'tweet'" class="text">{{item.text}}</span>
+        <span ng-if="item.type != 'tweet'">
+          <strong class="realname">{{item.author.realname}}</strong>
+          {{item.text}}
+          <small class="ref-text">{{item.ref.ago}}: {{item.ref.text}}</small>
+          <img class="icon-small" ng-src="{{item.author.icon}}">
+        </span>
+      </a>
+    </li>
+
+    <li class="spinner-item" ng-scroller-loading></li>
+  </ul>
+</div>
+
+<script>
+  main();
+</script>
