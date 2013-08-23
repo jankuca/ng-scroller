@@ -1,4 +1,14 @@
 {
+  "apps.dist": {
+    "output": "./dist/ng-scroller.min.js",
+    "namespaces": [ "ng.Scroller.module" ],
+    "roots": [
+      "./lib"
+    ],
+
+    "closure-compiler.flags.angular_pass": true
+  },
+
   "apps.facebook": {
     "output.deps": "./examples/build/facebook-deps.js",
     "namespaces": [ "app" ],
