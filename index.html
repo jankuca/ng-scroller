@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css">
+<style>
+  .in-page-demo {
+    background-color: #F8F8F8;
+  }
+  .in-page-demo iframe {
+    display: block;
+  }
+
+  .btn-primary strong {
+    color: #ddd;
+    font-weight: normal;
+  }
+
+  code strong {
+    display: inline-block;
+    margin: -1px -3px;
+    padding: 1px 3px;
+    background-color: #FFA;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+    color: #000;
+    font-weight: normal;
+  }
+
+  .gap {
+    height: 100px;
+  }
+</style>
+
+<body>
+<div class="jumbotron">
+  <div class="container">
+    <h1>ng-scroller</h1>
+    <p class="lead">Performant infinite scrolling AngularJS directive with UITableView-like element reusal</p>
+    <p>
+      <a class="btn btn-primary" href="https://medium.com/p/463bc649c7bd">Learn more: <strong>The Infinite Path of Scrolling</strong></a>
+      <a class="btn btn-info" href="https://github.com/jankuca/ng-scroller">Github Repository</a>
+      <a class="btn" href="./dist/ng-scroller.min.js"><strong>Download</strong> the non-Google Closure build</a>
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-lg-8">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <a href="./examples/facebook.html">Facebook Example</a>
+          <small><code>./examples/facebook.html</code></small>
+          <br>Both modes (widget and in-page) on one page
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <a href="./examples/twitter.html">Twitter Example</a>
+          <small><code>./examples/twitter.html</code></small>
+          <small><em>embedded on the right &rarr;</em></small>
+          <br>Twitter stream in the iOS app
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-body">
+          <a href="./examples/non-closure.html">Non-Google Closure Example</a>
+          <small><code>./examples/non-closure.html</code></small>
+          <br>Usage outside of a Google Closure app;
+              most apps will probably choose this option.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-lg-4">
+      <div class="thumbnail in-page-demo">
+        <iframe src="./examples/twitter.html" frameborder="0" width="100%" height="460"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-xs-12 col-md-8 col-lg-8">
+    <h2 class="page-header">Usage</h2>
+    
+    <h4>Google Closure-based Apps</h4>
+    <pre><code>goog.provide('app');
+<strong>goog.require('ng.Scroller.module');</strong>
+
+app.module = angular.module('app', [ <strong>'ngScroller'</strong> ]);</code></pre>
+
+    <h4>Non-Google Closure-based Apps</h4>
+    <pre><code><strong>&lt;script src="ng-scroller.min.js"&gt;&lt;/script&gt;</strong>
+
+&lt;script&gt;
+  var app = angular.module('app', [ <strong>'ngScroller'</strong> ]);
+&lt;/script&gt;</code></pre>
+
+    <div class="gap"></div>
+
+    <h2 class="page-header">Building</h2>
+    <p>To build the library and the examples, you will need to install all dependencies
+        via <strong>NPM</strong> and <strong>Bower</strong>.</p>
+
+    <pre><code>$ npm install<br>$ bower install</code></pre>
+
+    <p>The project is built using
+        <a href="http://github.com/jankuca/closure-runner">Closure Runner</a> which is a
+        <a href="http://developers.google.com/closure/">Google Closure Tools</a>-friendly
+        task runner.</p>
+
+    <pre><code>$ <strong>./node_modules/.bin/runner</strong></code></pre>
+
+    <p>This generates the following files:</p>
+    <ul>
+      <li><code><strong>./dist/ng-scroller.min.js</strong></code>
+          – the embeddable build</li>
+      <li><code>./examples/build/facebook.js</code>
+          – Facebook example</li>
+      <li><code>./examples/build/twitter.js</code>
+          – Twitter example</li>
+    </ul>
+  </div>
+</div>
+
+<div class="gap"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-lg-8">
+      <hr>
+      <p class="lead"><strong>All feedback is welcome.</strong> Please submit your issues and ideas
+          to the <a href="https://github.com/jankuca/ng-scroller/issues">Github project</a>. Thanks!</p>
+      <hr>
+      <p>Read more about the issue of infinite scrolling:
+          <a href="https://medium.com/p/463bc649c7bd">The Infinite Path of Scrolling</a></p>
+      <p><small>Created by <a href="http://jankuca.com">Jan Kuča</a> while interning at Google working on
+          the <a href="http://angularjs.org">AngularJS framework</a>.</small></p>
+    </div>
+  </div>
+</div>
+
+<div class="gap"></div>
+<div class="gap"></div>

@@ -4,6 +4,12 @@ body {
 }
 
 
+.bar-title {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+
 .item {
   display: block;
   position: relative;
