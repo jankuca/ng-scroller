@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+
+<style>
+  .item { display: block; padding: 8px 20px; }
+  .loading { display: block; height: 40px; background-color: #DDD; }
+</style>
+
+<script src="../lib/angular/angular.js"></script>
+<script src="../dist/ng-scroller.min.js"></script>
+
+<body ng-app="app">
+
+<header class="bar-title">
+  <h1 class="title">Title</h1>
+</header>
+
+<div class="content" ng-controller="MainController" ng-scroller="content">
+  <ul class="list" ng-scroller-repeat="item in items">
+    <li class="item">{{item.text}}</li>
+    <!-- <li class="loading" ng-scroller-loading></li> -->
+  </ul>
+</div>
+
+<script>
+  var app = angular.module('app', [ 'ngScroller' ]);
+
+  app.controller('MainController', function ($scope) {
+    $scope.items = generateItems(1000);
+  });
+
+
+  function generateItems(count) {
+    var items = [];
+    var ids = [];
+    while(count--) {
+      var id;
+      do {
+        id = Math.round(Math.random() * 1000000);
+      } while (ids.indexOf(id) !== -1);
+
+      items.push({
+        'id': id,
+        'text': 'Item ID=' + id
+      });
+    }
+    return items;
+  };
+</script>
