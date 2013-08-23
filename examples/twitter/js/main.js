@@ -2,18 +2,14 @@ goog.provide('app');
 
 goog.require('app.FeedController');
 goog.require('app.FeedRepository');
-goog.require('ng.InPageScrollerStyler');
-goog.require('ng.Scroller');
-goog.require('ng.directive');
+goog.require('ng.Scroller.module');
 
 
 app.main = function () {
-  app.module = angular.module('app', []);
+  app.module = angular.module('app', [ 'ngScroller' ]);
 
   app.module.controller('FeedController', app.FeedController);
   app.module.service('feed', app.FeedRepository);
-
-  app.module.directive('ngScroller', ng.directive(ng.Scroller));
 };
 
 

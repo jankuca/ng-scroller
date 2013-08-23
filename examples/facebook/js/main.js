@@ -6,13 +6,11 @@ goog.require('app.NewsFeedScroller');
 goog.require('app.PostRepository');
 goog.require('app.TickerController');
 goog.require('app.UpdateRepository');
-goog.require('ng.InPageScrollerStyler');
-goog.require('ng.Scroller');
-goog.require('ng.directive');
+goog.require('ng.Scroller.module');
 
 
 app.main = function () {
-  app.module = angular.module('app', []);
+  app.module = angular.module('app', [ 'ngScroller' ]);
 
   app.module.controller('ChatListController', app.ChatListController);
   app.module.controller('NewsFeedController', app.NewsFeedController);
@@ -20,8 +18,6 @@ app.main = function () {
 
   app.module.service('posts', app.PostRepository);
   app.module.service('updates', app.UpdateRepository);
-
-  app.module.directive('ngScroller', ng.directive(ng.Scroller));
 };
 
 
