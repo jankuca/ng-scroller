@@ -604,6 +604,8 @@ angular.Module.requires;
  *   $on: function(string, function(angular.Scope.Event, ...[?])):function(),
  *   $parent: angular.Scope,
  *   $root: angular.Scope,
+ *   $$listeners: !Object.<string, !Array>,
+ *   $$watchers: Array,
  *   $watch: function(
  *       (string|Function), (string|Function)=, boolean=):function()
  *   }}
@@ -662,6 +664,12 @@ angular.Scope.$new = function(opt_isolate) {};
  * @return {function()}
  */
 angular.Scope.$on = function(name, listener) {};
+
+/** @type {!Object.<string, !Array>} */
+angular.Scope.$$listeners;
+
+/** @type {Array} */
+angular.Scope.$$watchers;
 
 /** @type {angular.Scope} */
 angular.Scope.$parent;
