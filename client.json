@@ -29,5 +29,6 @@
 
   "externs.angular": "./externs/angular.js",
 
+  "closure-compiler": "./lib/closure-compiler",
   "closure-library": "./lib/closure-library"
 }

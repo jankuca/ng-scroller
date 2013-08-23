@@ -1,2 +1,16 @@
+
+# install client-side dependencies
 ./node_modules/.bin/bower install
-./node_modules/.bin/runner deps
+
+# get Google Closure Compiler
+cd "lib"
+rm -rf "closure-compiler"
+mkdir "closure-compiler"
+cd "closure-compiler"
+curl -s "http://closure-compiler.googlecode.com/files/compiler-latest.zip" > "compiler-latest.zip"
+jar -xf "compiler-latest.zip"
+rm "compiler-latest.zip"
+cd ../..
+
+# build!
+./node_modules/.bin/runner
