@@ -1,0 +1,16 @@
+{
+  "app": {
+    "output": "./public/build/app.min.js",
+    "output": "./public/build/deps.js",
+    "output.source-map": "./public/build/source-map.js",
+
+    "namespaces": [ "app" ],
+    "roots": [
+      "./public/app",
+      "./public/lib"
+    ]
+  },
+
+  "closure-compiler": "./build/closure-compiler",
+  "closure-library": "./public/lib/closure-library"
+}
