@@ -26,5 +26,10 @@
   "closure-library": "./public/lib/closure-library",
 
   "tasks.build": "./build/build.task.js",
-  "tasks.css": "./build/css.task.js"
+  "tasks.css": "./build/css.task.js",
+  "tasks.watch": "./build/watch.task.js",
+
+  "watch": {
+    "css": "./public/app/css"
+  }
 }
