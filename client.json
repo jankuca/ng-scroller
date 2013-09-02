@@ -8,9 +8,23 @@
     "roots": [
       "./public/app",
       "./public/lib"
-    ]
+    ],
+
+    "css": {
+      "./public/build/app.min.css": [
+        "./public/app/css/reset.css",
+        "./public/app/css/app.rework.css"
+      ]
+    },
+
+    "css.autoprefixer": [ "last 2 versions" ],
+    "css.inheritance": true,
+    "css.minify": true
   },
 
   "closure-compiler": "./build/closure-compiler",
-  "closure-library": "./public/lib/closure-library"
+  "closure-library": "./public/lib/closure-library",
+
+  "tasks.build": "./build/build.task.js",
+  "tasks.css": "./build/css.task.js"
 }

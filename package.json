@@ -6,6 +6,8 @@
   "description": "",
 
   "dependencies": {
+    "async": "*",
+    "autoprefixer": "*",
     "closure-runner": "0.1.x",
     "rework": "0.13.x"
   }
