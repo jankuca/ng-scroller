@@ -58,7 +58,7 @@ module.exports = function (runner, args, callback) {
         });
 
         var target_filename = path.join(project_dirname, target);
-        fs.writeFileSync(target_filename, css_result);
+        fs.writeFile(target_filename, css_result, callback);
       };
 
       async.forEachSeries(targets, onTarget, callback);
