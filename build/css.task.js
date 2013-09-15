@@ -25,12 +25,31 @@ module.exports = function (runner, args, callback) {
       var targets = Object.keys(groups);
 
       var onTarget = function (target, callback) {
+        var target_filename = path.join(project_dirname, target);
+
         var css_files = groups[target] || [];
         var css_code = '';
 
         css_files.forEach(function (file) {
           var filename = path.join(project_dirname, file);
-          css_code += fs.readFileSync(filename, 'utf8');
+          var css_part_code = fs.readFileSync(filename, 'utf8');
+          var css_part = rework(css_part_code);
+
+          var filename_rel_to_target = path.relative(
+            path.dirname(target_filename),
+            path.dirname(filename)
+          );
+
+          var fixUrl = function (url) {
+            if (url[0] === '.') {
+              var url_rel_to_target = path.join(filename_rel_to_target, url);
+              return url_rel_to_target;
+            }
+            return url;
+          };
+          css_part.use(rework.url(fixUrl));
+
+          css_code += css_part.toString();
         });
 
         var css = rework(css_code);
@@ -57,7 +76,6 @@ module.exports = function (runner, args, callback) {
           compress: minify
         });
 
-        var target_filename = path.join(project_dirname, target);
         fs.writeFile(target_filename, css_result, callback);
       };
 
