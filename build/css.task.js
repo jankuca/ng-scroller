@@ -3,6 +3,7 @@ var autoprefixer = require('autoprefixer');
 var fs = require('fs');
 var path = require('path');
 var rework = require('rework');
+var svg = require('rework-svg');
 
 
 module.exports = function (runner, args, callback) {
@@ -53,6 +54,7 @@ module.exports = function (runner, args, callback) {
         });
 
         var css = rework(css_code);
+        css.use(svg(path.dirname(target)));
         if (rework_flags.autoprefixer) {
           css.use(autoprefixer(rework_flags.autoprefixer).rework);
         }
