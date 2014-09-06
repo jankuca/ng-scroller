@@ -8,6 +8,7 @@
   "dependencies": {
     "async": "*",
     "autoprefixer": "*",
+    "bower": "*",
     "closure-runner": "*",
     "rework": "*",
     "rework-svg": "*"
