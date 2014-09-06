@@ -1,7 +1,7 @@
 {
   "app": {
     "output": "./public/build/app.min.js",
-    "output": "./public/build/deps.js",
+    "output.deps": "./public/build/deps.js",
     "output.source-map": "./public/build/source-map.js",
 
     "namespaces": [ "app" ],
