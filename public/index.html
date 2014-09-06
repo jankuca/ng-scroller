@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<title>Example Closure-Boilerplate Application</title>
+
+<script>
+(function () {
+  var protocol = window.location.protocol;
+  var host = window.location.host;
+
+  var allow_dev = true;
+  var is_local = (protocol === 'file:' || /localhost|^192\./.test(host));
+
+  var writeStyleSheet = function (url) {
+    document.write('<'+'link rel="stylesheet" href="' + url + '">');
+  };
+  var writeScript = function (url) {
+    document.write('<'+'script src="' + url + '"></' + 'script>');
+  };
+
+  writeStyleSheet('./build/app.min.css');
+  if (allow_dev && is_local) {
+    writeScript('./lib/closure-library/closure/goog/base.js');
+    writeScript('./build/deps.js');
+    writeScript('./app/js/main.js');
+  } else {
+    writeScript('./build/app.min.js');
+  }
+}());
+</script>
+
+<body>
+
+<script>
+  main()
+</script>

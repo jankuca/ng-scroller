@@ -3,7 +3,6 @@
   "dependencies": {
     "angular": "*",
     "bootstrap": "*",
-    "closure-library": "git://github.com/steida/google-closure-library.git"
+    "closure-library": "git://github.com/google/closure-library.git"
   }
 }
-

@@ -1,5 +1,13 @@
+# Ingore accidentally created folder state files
+.DS_Store
+desktop.ini
+Thumbs.db
+npm-debug.log
+
+# Ignore Sublime Text workspace files
+*.sublime-workspace
+
 lib/*
 node_modules/
-.DS_Store
 
 !lib/ng/

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+if [ ! -d "build" ] || [ ! -f "init" ]; then
+  echo -e "\033[0;31mThis script must be executed from the root project directory.\033[0m"
+  exit 1
+fi
+
+
+boilerplate_url=$(git config --get remote.origin.url)
+git remote rm origin
+git remote add closure-boilerplate "$boilerplate_url"
+
+
+rm "init"
+git rm "init"
+rm "README.md"
+git rm "README.md"
+git add .
+git commit -m '[clean initial environment]'

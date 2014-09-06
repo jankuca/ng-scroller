@@ -1,0 +1,59 @@
+{
+  "folders": [
+    {
+      "path": "build",
+      "name": "Build Scripts"
+    },
+    {
+      "path": "public/build",
+      "name": "Build Results"
+    },
+    {
+      "path": "public",
+      "name": "Client",
+      "folder_exclude_patterns": [
+        "build",
+        "lib"
+      ]
+    },
+    {
+      "path": "public/lib",
+      "name": "Client/Libraries"
+    },
+    {
+      "path": ".",
+      "name": "Server",
+      "folder_exclude_patterns": [
+        "build",
+        "public",
+        "node_modules"
+      ]
+    },
+    {
+      "path": "node_modules",
+      "name": "Server/Libraries"
+    }
+  ],
+
+  "settings": {
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true,
+    "word_wrap": true,
+    "wrap_width": 80
+  },
+
+  "build_systems": [
+    {
+      "name": "Lint the app",
+      "cmd": [ "bash", "$project_path/build/lint.sh", "$project_path" ]
+    },
+    {
+      "name": "Compile the app",
+      "cmd": [ "bash", "$project_path/build/compile.sh", "$project_path" ]
+    },
+    {
+      "name": "Compile templates",
+      "cmd": [ "bash", "$project_path/build/soy.sh", "$project_path" ]
+    }
+  ]
+}
