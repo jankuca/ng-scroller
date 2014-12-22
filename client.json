@@ -1,6 +1,7 @@
 {
   "apps.dist": {
     "output": "./dist/ng-scroller.min.js",
+    "output.deps": "./dist/deps.js",
     "namespaces": [ "ng.Scroller.module" ],
     "roots": [
       "./lib"
