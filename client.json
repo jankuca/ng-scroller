@@ -30,6 +30,6 @@
 
   "externs.angular": "./externs/angular.js",
 
-  "closure-compiler": "./lib/closure-compiler",
+  "closure-compiler": "./build/closure-compiler",
   "closure-library": "./lib/closure-library"
 }
